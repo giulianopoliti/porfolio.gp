@@ -1,0 +1,37 @@
+---
+import ProjectItem from "./ProjectItem.astro"
+const EXPERIENCIE = [
+  {
+    date: "Diciembre 2023",
+    title: "Trilateración 2D",
+    company: "UADE",
+    description:
+      "Proyecto académico en Java y Spring Boot creando una API REST para encontrar un exoplaneta por medio de señales de 3 satélites (con Postman) que envían la distancia y recomponen un mensaje encriptado.",
+    link: "https://github.com/giulianopoliti/trilateration-2d-java",
+  },
+  {
+    date: "Actualidad",
+    title: "Find Your Guide",
+    company: "UADE",
+    description:
+      "Realizando una aplicación para encontrar guías turísticos en todo el mundo, estamos utilizando Java, Spring Boot y SQL.",
+  },
+  {
+    date: "Actualidad",
+    title: "Padel Para Todos",
+    company: "Freelance",
+    description:
+      "Desarrollando una API REST para la organización de torneos de padel, pienso incluir todo el framework Spring y en el front Angular (aprendiendolo).",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCIE.map((experiencie) => (
+      <li class="">
+        <ProjectItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>

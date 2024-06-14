@@ -1,0 +1,30 @@
+:root {
+    --primary-color: #3498db; /* Color principal */
+    --secondary-color: #2ecc71; /* Color secundario */
+    --text-color-light: rgba(17, 17, 17, 0.9);
+    --text-color-dark: rgba(255, 255, 255, 0.9);
+    --background-light: #f0f0f0;
+    --background-dark: #1c1c1c;
+  }
+  
+  html {
+    font-family: "Onest Variable", system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    color: var(--text-color-light);
+    background-color: var(--background-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overscroll-behavior: none;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    body {
+      color: var(--text-color-dark);
+      background-color: var(--background-dark);
+    }
+  }
+  
