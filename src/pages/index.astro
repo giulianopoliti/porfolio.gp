@@ -2,19 +2,22 @@
 import Layout from "@/layouts/Layout.astro"
 
 import AboutMe from "@/components/AboutMe.astro"
-import Experience from "@/components/Proyectos.astro"
+import Projects from "@/components/Proyectos.astro"
 import ProfileCheck from "@/components/icons/ProfileCheck.astro"
-import Projects from "@/components/Formacion.astro"
+import Formacion from "@/components/Formacion.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
 import Hero from "@/components/Hero.astro"
 import CodeIcon from "@/components/icons/CodeIcon.astro"
 import Briefcase from "@/components/icons/Briefcase.astro"
+import Experiencia from "@/components/Experiencia.astro"
+import Formacion2 from "@/components/icons/Formacion2.astro"
 ---
 
 <Layout
   title="Portafolio de Giuliano Politi"
   description="Backend Developer"
 >
+
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
       <Hero>
@@ -22,6 +25,15 @@ import Briefcase from "@/components/icons/Briefcase.astro"
     </Hero>
     </SectionContainer>
     <div class="space-y-24">
+      <SectionContainer id="sobre-mi">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+        >
+          <ProfileCheck class="size-8" />
+          Sobre mí
+        </h2>
+        <AboutMe />
+      </SectionContainer>
     <SectionContainer id="proyectos">
       <h2
         class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
@@ -29,27 +41,21 @@ import Briefcase from "@/components/icons/Briefcase.astro"
         <CodeIcon class="size-8" />
         Proyectos
       </h2>
-      <Experience />
+      <Projects />
     </SectionContainer>
 
     <SectionContainer id="formacion">
       <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-2 text-black/80 dark:text-white"
       >
-        <Briefcase class="size-7" />
+        <Formacion2 class="size-7" />
         Formación académica
       </h2>
-      <Projects />
+      <Formacion />
     </SectionContainer>
 
-    <SectionContainer id="sobre-mi">
-      <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
-      >
-        <ProfileCheck class="size-8" />
-        Sobre mí
-      </h2>
-      <AboutMe />
+    <SectionContainer id="experiencia">
+      <Experiencia/>
     </SectionContainer>
   </div>
   </main>

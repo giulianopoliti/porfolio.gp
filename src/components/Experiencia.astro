@@ -1,0 +1,78 @@
+---
+import Image from "astro/components/Image.astro";
+import Briefcase from "./icons/Briefcase.astro";
+import { forEachChild } from "typescript";
+
+
+const experiences = [
+  {
+    company: 'Kiosco 441',
+    role: 'Encargado',
+    image: '/projects/kiosco.png',
+    date: 'Temporadas Diciembre a Marzo',
+    description: ['Gestioné el Stock, para los productos que no tenian codigo de barra creé una base de datos SQL.', 'Realicé pedidos a proveedores y controlé la facturación.', 'Coordiné a los empleados.'],
+    URL: "https://www.instagram.com/kiosco441"
+},
+  {
+    company: 'Ministerio de Salud',
+    role: 'Analista de presupuesto',
+    image: '/projects/ministerio2.jpg',
+    date: '05/2022 - 12/2023',
+    description: ['Participé en la administración del presupuesto, realizando cálculos matemáticos y automatizándolo.', 'Brindé métricas para contribuir al planeamiento económico.'],
+    URL: "https://www.instagram.com/saludba/?hl=es"
+  },
+  {
+    company: 'Swiss Medical',
+    role: 'Operador Call y Administrativo',
+    image: '/projects/swiss.png',
+    date: '12/2019 - 12/2021',
+    description: ['Atendí llamadas de la línea de emergencias',  'Resolví asuntos administrativos'],
+    URL: "https://www.instagram.com/swissmedicalgroup/?hl=es-la" 
+  },
+];
+
+---
+
+<section>
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+    <div class="max-w-screen-lg mb-8 lg:mb-16">
+      <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
+        <Briefcase class="size-7" />
+         Experiencia Laboral
+      </h2>
+      
+    </div>
+    <div class="grid gap-4 mb-6 lg:mb-16 md:grid-cols-1">
+      {experiences.map((exp, index) => (
+        <div key={index} class="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl">
+          <div class="overflow-hidden sm:overflow-visible">
+            <img class="aspect-square w-full sm:w-36" src={exp.image} alt={`Imagen de ${exp.company}`} />
+          </div>
+          <div class="w-full p-4">
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">{exp.company}</h3>
+            <h4 class="text-lg text-gray-700 dark:text-gray-300">{exp.role}</h4>
+            <h5 class="text-lg text-gray-700 dark:text-gray-300">{exp.date}</h5>
+            {Array.isArray(exp.description) ? (
+              <ul>
+                {exp.description.map((desc, idx) => (
+                  <li key={idx} class="mt-2 text-gray-700 dark:text-gray-400 mb-4">{"- " + desc}</li>
+                ))}
+              </ul>
+            ) : (
+              <p class="mt-2 text-gray-700 dark:text-gray-400 mb-4">{exp.description}</p>
+            )}
+            {exp.URL && (
+              <a href={exp.URL} class="text-gray-500 hover:text-gray-900 dark:hover:text-white" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-brand-instagram">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
+                  <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                </svg>
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
