@@ -9,6 +9,7 @@ import Angular from "./icons/Angular.astro"
 import Git from "./icons/Git.astro"
 import Languaje from "./icons/Languaje.astro"
 import StarUML from "./icons/StarUML.astro"
+import Math from "./icons/Math.astro"
 
 const TAGS = {
 
@@ -52,13 +53,18 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: StarUML,
   },
+  Matematica: {
+    name: "Matemática",
+    class: "bg-[#003159] text-white",
+    icon: Math,
+  },
 }
 const FORMACION = [
   {
     title: "UADE - Ingeniería en Informática",
     description:
       "18/45 materias aprobadas, 4 en curso. Adquiriendo conocimientos sólidos en desarrollo de Software como Programacion orientada a objetos con patrones de diseño, bases de datos relacionales y otras áreas como álgebra, matemática, telecomunicaciones, redes.",
-    image: "/projects/uade.jpeg",
+    image: "/projects/uade2.png",
     tags: [TAGS.JAVA, TAGS.Python, TAGS.Spring, TAGS.SQL, TAGS.Git, TAGS.StarUML
 ],
   },
@@ -73,44 +79,51 @@ const FORMACION = [
     title: "Spring Framework con Angular - Udemy",
     description:
       "Estudiando el framework Spring para implementar en el proyecto Padel Para Todos y para el Front con Angular (competencia básica).",
-    image: "/projects/udemy.png",
+    image: "/projects/udemy2.png",
     tags: [TAGS.Angular, TAGS.JAVA, TAGS.Spring],
+  },
+  {
+    title: "Licenciatura en Comercio Internacional",
+    description:
+      "Carrera abandonada, 12/40 materias. Me dí cuenta que lo único que me atraía era el contenido práctico.",
+    image: "/projects/unlam.jpg",
+    tags: [TAGS.Matematica],
   },
 ]
 ---
-
-<div class="flex flex-col gap-y-16">
+<div class="flex flex-col gap-y-8"> <!-- Reducido el gap vertical a gap-y-8 -->
   {
     FORMACION.map(({ image, title, description, tags}) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-  <div class="w-full md:w-1/2">
-    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <img alt="Imagen del proyecto" class="object-top w-full h-40 md:h-48 transition duration-500 sm:h-full md:scale-100 md:group-hover:scale-110" loading="lazy" src={image} />
-    </div>
-  </div>
+      <article class="flex flex-col space-y-4 group md:flex-row md:space-x-4 md:space-y-0"> 
+        <div class="w-full md:w-2/5">
+          <div class="relative flex items-center gap-4 transition duration-500 ease-in-out transform shadow-xl overflow-hidden rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50" style="width: 300px; height: 300px;">
+            <img alt="Imagen del proyecto" class="object-cover w-full h-full transition duration-500 md:scale-100 md:group-hover:scale-110" loading="lazy" src={image} /> <!-- Ajustado el tamaño de la imagen a w-full y h-full -->
+          </div>
+        </div>
 
-  <div class="w-full md:w-1/2 md:max-w-lg">
-    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-      {title}
-    </h3>
-    <div class="flex flex-wrap mt-2">
-      <ul class="flex flex-wrap mb-2 gap-x-2">
-          {tags.map((tag) => (
-            <li>
-              <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 my-1`}
-              >
-                <tag.icon class="size-4" />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul>
-      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-</article>
+        <div class="w-full md:w-3/5 md:max-w-lg flex flex-col"> 
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-wrap mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 my-1`}>
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+          </div>
+        </div>
+      </article>
     ))
   }
 </div>
+
 
 
 
